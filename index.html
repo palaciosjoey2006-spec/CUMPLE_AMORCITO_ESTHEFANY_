@@ -6,9 +6,10 @@
     <title>Feliz Cumpleaños Esthefany</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;600&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* --- ESTILOS GENERALES --- */
         :root {
             --color-principal: #ff85a1;
-            --color-fondo: #f9f9f9;
+            --color-fondo: #f4f7f6; /* Fondo ligeramente grisáceo para contraste */
             --amarillo-nota: #fff9c4;
         }
 
@@ -22,10 +23,11 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
+            overflow-x: hidden; /* Evita scroll horizontal por los emojis */
         }
 
-        /* Estrellas decorativas */
-        .decoracion {
+        /* Decoraciones estáticas de fondo (las que ya tenías) */
+        .decoracion-fija {
             position: fixed;
             width: 100%;
             height: 100%;
@@ -33,114 +35,181 @@
             pointer-events: none;
         }
 
+        /* --- ESTILOS DE LA LLUVIA DE EMOJIS --- */
+        .emoji-cayendo {
+            position: fixed;
+            top: -50px; /* Empiezan fuera de la pantalla arriba */
+            z-index: 100; /* Para que caigan por encima de todo */
+            font-size: 24px;
+            animation: caer linear forwards;
+            opacity: 0.8; /* Un poco transparentes para no tapar mucho */
+        }
+
+        @keyframes caer {
+            to {
+                transform: translateY(110vh) rotate(360deg); /* Caen más abajo del final y rotan */
+            }
+        }
+
+        /* --- CONTENIDO PRINCIPAL --- */
         .contenedor-principal {
             text-align: center;
-            padding: 40px 20px;
+            padding: 50px 20px;
             max-width: 800px;
+            position: relative;
+            z-index: 1;
         }
 
         .nombre {
             font-family: 'Dancing Script', cursive;
-            font-size: 4.5rem;
+            font-size: 5rem;
             margin-bottom: 0;
             color: #222;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
 
         .gran-texto {
             font-size: 7rem;
             font-weight: 900;
-            color: #ffde59;
+            color: #ffde59; /* Amarillo */
             line-height: 1;
-            margin: 10px 0;
+            margin: 15px 0;
             text-transform: uppercase;
+            text-shadow: 3px 3px 0px rgba(0,0,0,0.05);
         }
 
-        /* Estilo de la Nota/Cuadrito */
+        /* --- ESTILO DE LA NOTA (CARTA) --- */
         .nota-amor {
-            background-color: white;
-            padding: 40px;
-            margin: 30px auto;
-            max-width: 550px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background-color: #fff;
+            padding: 50px 40px;
+            margin: 40px auto;
+            max-width: 600px;
+            border-radius: 8px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
             position: relative;
-            border-left: 8px solid var(--color-principal);
-            transform: rotate(-1deg); /* Le da un toque "natural" */
+            border-left: 10px solid var(--color-principal);
+            transform: rotate(-1deg); /* Pequeña inclinación estética */
         }
 
-        .nota-amor p {
-            font-family: 'Caveat', cursive;
-            font-size: 1.6rem;
-            line-height: 1.4;
-            color: #444;
-            text-align: left;
-            margin: 0;
-        }
-
+        /* Chincheta decorativa */
         .nota-amor::before {
-            content: "📌";
+            content: "📍";
             position: absolute;
             top: -15px;
             left: 50%;
-            font-size: 1.5rem;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            z-index: 2;
+        }
+
+        .nota-amor p {
+            font-family: 'Caveat', cursive; /* Fuente de letra corrida */
+            font-size: 1.7rem;
+            line-height: 1.5;
+            color: #444;
+            text-align: left;
+            margin-bottom: 20px;
         }
 
         .fecha {
             font-weight: 600;
-            letter-spacing: 2px;
-            color: var(--color-principal);
-            margin-top: 20px;
+            letter-spacing: 1px;
+            color: #777;
+            margin-top: 30px;
             display: block;
+            font-size: 1.1rem;
         }
 
+        /* --- FOOTER --- */
         footer {
             margin-top: auto;
             width: 100%;
-            height: 80px;
-            background-color: #a2d2ff;
+            height: 100px;
+            background-color: #a7c5eb; /* Azul pastel */
             display: flex;
             justify-content: center;
             align-items: center;
             color: white;
-            font-weight: bold;
+            font-weight: 600;
+            font-size: 1.2rem;
         }
 
+        /* --- RESPONSIVE (Celulares) --- */
         @media (max-width: 600px) {
-            .nombre { font-size: 3rem; }
-            .gran-texto { font-size: 4rem; }
-            .nota-amor { padding: 25px; width: 90%; }
+            .nombre { font-size: 3.5rem; }
+            .gran-texto { font-size: 4.5rem; }
+            .nota-amor { padding: 30px 20px; width: 90%; }
+            .nota-amor p { font-size: 1.4rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="decoracion">
-        <span style="position:absolute; top:15%; left:5%; font-size: 25px;">✨</span>
-        <span style="position:absolute; top:10%; right:10%; font-size: 20px;">⭐</span>
-        <span style="position:absolute; bottom:20%; left:10%; font-size: 25px;">💖</span>
-        <span style="position:absolute; bottom:40%; right:5%; font-size: 20px;">🌸</span>
+    <div class="decoracion-fija">
+        <span style="position:absolute; top:10%; left:5%; font-size: 20px;">✨</span>
+        <span style="position:absolute; top:15%; right:10%; font-size: 18px;">💖</span>
+        <span style="position:absolute; bottom:20%; left:8%; font-size: 22px;">🌸</span>
     </div>
 
     <div class="contenedor-principal">
-         <div class="gran-texto""> ❤️ FELIZ CUMPLEAÑOS MI AMORCITO ❤️ </div>
-        <div class="nombre"> TE AMOOO <3 </div>
+        <h1 class="nombre"> FELIZ CUMPLE AMORCITO </h1>
+        <div class="gran-texto"> TE AMO </div>
         
         <div class="nota-amor">
             <p>
-                Mi amorcito, en este día tan especial quiero celebrarte y recordarte cuánto significas para mí. Tu cumpleaños es la oportunidad perfecta para agradecerle a Diosito por haberte dado la vida. <br><br>
-                Tu bondad, tu risa y tu amor hacen que cada día sea mejor y más brillante. Un día como hoy, hace 21 años, nació la mujer de mi vida, mi niña, el amorcito que quiero para toda mi vida. <br><br>
-                Yo te amo mucho y estoy muy feliz por tenerte en mi vida. Eres muy especial, mi amorcito, vales muchísimo. Como siempre te digo, sigue adelante, porque naciste con un propósito hermoso. <br><br>
-                Valora tu vida, que es única e incomparable. Feliz cumpleaños, amorcito mío. <br><br>
-                Eres mi todo y deseo, con todo mi corazón, que todos tus sueños se hagan realidad.
+                Mi amorcito, en este día tan especial quiero celebrarte y recordarte cuánto significas para mí. Tu cumpleaños es la oportunidad perfecta para agradecerle a Diosito por haberte dado la vida. 
             </p>
+            <p>
+                Tu bondad, tu risa y tu amor hacen que cada día sea mejor y más brillante. Un día como hoy, hace 21 años, nació la mujer de mi vida, mi niña, el amorcito que quiero para toda mi vida.
+            </p>
+            <p>
+                Yo te amo mucho y estoy muy feliz por tenerte en mi vida. Eres muy especial, mi amorcito, vales muchísimo. Como siempre te digo, sigue adelante, porque naciste con un propósito hermoso.
+            </p>
+            <p>
+                Valora tu vida, que es única e incomparable. Feliz cumpleaños, amorcito mío. Eres mi todo y deseo, con todo mi corazón, que todos tus sueños se hagan realidad.
+            </p>
+            
+            <span class="fecha">19 de Enero de 2026</span>
         </div>
 
-        <span class="fecha">26 de septiembre de 2026</span>
     </div>
 
     <footer>
-        Hecho con amor para ti - Joey Palacios ❤️
+        Hecho con todo mi amor para ti - Papi Joey❤️
     </footer>
+
+    <script>
+        function crearEmoji() {
+            const emojis = ['💖', '🎂', '🎉', '🌸', '✨', '🥳', '🎁'];
+            const emoji = document.createElement('div');
+            emoji.classList.add('emoji-cayendo');
+            emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+            
+            // Posición horizontal aleatoria
+            emoji.style.left = Math.random() * 100 + 'vw';
+            
+            // Tamaño aleatorio entre 20px y 35px
+            emoji.style.fontSize = (Math.random() * 15 + 20) + 'px';
+            
+            // Duración de la caída aleatoria entre 3 y 6 segundos
+            emoji.style.animationDuration = (Math.random() * 3 + 3) + 's';
+
+            document.body.appendChild(emoji);
+
+            // Eliminar el emoji después de que caiga para que no se acumulen infinitamente
+            setTimeout(() => {
+                emoji.remove();
+            }, 6000);
+        }
+
+        // Generar un emoji nuevo cada 300 milisegundos
+        setInterval(crearEmoji, 300);
+
+        // Generar un primer lote rápido al cargar la página
+        for(let i = 0; i < 15; i++) {
+            setTimeout(crearEmoji, i * 100);
+        }
+    </script>
 
 </body>
 </html>
