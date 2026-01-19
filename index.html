@@ -1,203 +1,146 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Feliz Cumpleaños Mi Amor 💖</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños Esthefany</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;600&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-principal: #ff85a1;
+            --color-fondo: #f9f9f9;
+            --amarillo-nota: #fff9c4;
+        }
 
-<style>
-    body {
-        margin: 0;
-        background: #fff;
-        font-family: 'Georgia', 'Times New Roman', cursive;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        overflow-x: hidden;
-    }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--color-fondo);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-    .carta {
-        max-width: 750px;
-        padding: 40px;
-        text-align: center;
-        animation: aparecer 2s ease;
-        z-index: 1;
-    }
+        /* Estrellas decorativas */
+        .decoracion {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
 
-    h1 {
-        color: #e63946;
-        font-size: 38px;
-        margin-bottom: 15px;
-        letter-spacing: 2px;
-    }
+        .contenedor-principal {
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 800px;
+        }
 
-    .contador {
-        font-size: 20px;
-        color: #ff4d6d;
-        margin-bottom: 30px;
-        font-weight: bold;
-    }
+        .nombre {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4.5rem;
+            margin-bottom: 0;
+            color: #222;
+        }
 
-    .texto {
-        font-size: 21px;
-        color: #111;
-        line-height: 1.8;
-        margin-bottom: 30px;
-    }
+        .gran-texto {
+            font-size: 7rem;
+            font-weight: 900;
+            color: #ffde59;
+            line-height: 1;
+            margin: 10px 0;
+            text-transform: uppercase;
+        }
 
-    .texto p {
-        margin-bottom: 18px;
-    }
+        /* Estilo de la Nota/Cuadrito */
+        .nota-amor {
+            background-color: white;
+            padding: 40px;
+            margin: 30px auto;
+            max-width: 550px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            border-left: 8px solid var(--color-principal);
+            transform: rotate(-1deg); /* Le da un toque "natural" */
+        }
 
-    .lista span {
-        display: block;
-        margin: 6px 0;
-        font-size: 20px;
-    }
+        .nota-amor p {
+            font-family: 'Caveat', cursive;
+            font-size: 1.6rem;
+            line-height: 1.4;
+            color: #444;
+            text-align: left;
+            margin: 0;
+        }
 
-    .firma {
-        margin-top: 30px;
-        font-size: 22px;
-        font-style: italic;
-    }
+        .nota-amor::before {
+            content: "📌";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            font-size: 1.5rem;
+        }
 
-    .corazon {
-        font-size: 45px;
-        margin-top: 20px;
-        animation: latido 1.5s infinite;
-    }
+        .fecha {
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--color-principal);
+            margin-top: 20px;
+            display: block;
+        }
 
-    .emoji {
-        position: fixed;
-        top: -20px;
-        font-size: 28px;
-        animation: caer 4s linear;
-        z-index: 0;
-    }
+        footer {
+            margin-top: auto;
+            width: 100%;
+            height: 80px;
+            background-color: #a2d2ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+        }
 
-    @keyframes latido {
-        0%,100% { transform: scale(1); }
-        50% { transform: scale(1.2); }
-    }
-
-    @keyframes aparecer {
-        from { opacity: 0; transform: scale(0.95); }
-        to { opacity: 1; transform: scale(1); }
-    }
-
-    @keyframes caer {
-        from { transform: translateY(-20px); opacity: 1; }
-        to { transform: translateY(100vh); opacity: 0; }
-    }
-</style>
+        @media (max-width: 600px) {
+            .nombre { font-size: 3rem; }
+            .gran-texto { font-size: 4rem; }
+            .nota-amor { padding: 25px; width: 90%; }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="carta">
-
-    <h1> 💖 !!! FELIZ CUMPLEAÑOS, MI AMORCITO LINDA ¡¡¡ 💖</h1>
-
-    <div class="contador" id="contador">Cargando conteo regresivo...</div>
-
-    <!-- CARTA LARGA -->
-    <div class="texto">
-        <p>
-            Mi amorcito, en este día tan especial quiero celebrarte  
-            y recordarte cuánto significas para mí.  
-            Tu cumpleaños es la oportunidad perfecta para agradecerle  
-            a Diosito por haberte dado la vida.
-        </p>
-
-        <p>
-            Tu bondad, tu risa y tu amor hacen que cada día  
-            sea mejor y más brillante.  
-            Un día como hoy, hace 21 años, nació la mujer de mi vida,  
-            mi niña, el amorcito que quiero para toda mi vida.
-        </p>
-
-        <p>
-            Yo te amo mucho y estoy muy feliz por tenerte en mi vida.  
-            Eres muy especial, mi amorcito, vales muchísimo.  
-            Como siempre te digo, sigue adelante, porque naciste  
-            con un propósito hermoso.
-        </p>
-
-        <p>
-            Valora tu vida, que es única e incomparable.  
-            <strong>Feliz cumpleaños, amorcito mío.</strong>
-        </p>
-
-        <p>
-            Eres mi todo y deseo, con todo mi corazón,  
-            que todos tus sueños se hagan realidad.
-        </p>
+    <div class="decoracion">
+        <span style="position:absolute; top:15%; left:5%; font-size: 25px;">✨</span>
+        <span style="position:absolute; top:10%; right:10%; font-size: 20px;">⭐</span>
+        <span style="position:absolute; bottom:20%; left:10%; font-size: 25px;">💖</span>
+        <span style="position:absolute; bottom:40%; right:5%; font-size: 20px;">🌸</span>
     </div>
 
-    <!-- BLOQUE QUE FALTABA -->
-    <h1>FELIZ CUMPLEAÑOS A...</h1>
+    <div class="contenedor-principal">
+        <h1 class="nombre"> ❤️!!! FELIZ CUMPLEAÑOS MI AMORCITO ¡¡¡ ❤️ </h1>
+        <div class="gran-texto">21 AÑOS</div>
+        
+        <div class="nota-amor">
+            <p>
+                Mi amorcito, en este día tan especial quiero celebrarte y recordarte cuánto significas para mí. Tu cumpleaños es la oportunidad perfecta para agradecerle a Diosito por haberte dado la vida. <br><br>
+                Tu bondad, tu risa y tu amor hacen que cada día sea mejor y más brillante. Un día como hoy, hace 21 años, nació la mujer de mi vida, mi niña, el amorcito que quiero para toda mi vida. <br><br>
+                Yo te amo mucho y estoy muy feliz por tenerte en mi vida. Eres muy especial, mi amorcito, vales muchísimo. Como siempre te digo, sigue adelante, porque naciste con un propósito hermoso. <br><br>
+                Valora tu vida, que es única e incomparable. Feliz cumpleaños, amorcito mío. <br><br>
+                Eres mi todo y deseo, con todo mi corazón, que todos tus sueños se hagan realidad.
+            </p>
+        </div>
 
-    <div class="lista">
-        <span>Mi amor.</span>
-        <span>Mi alma gemela.</span>
-        <span>Mi mejor amigo.</span>
-        <span>Mi confidente.</span>
-        <span>Mi familia.</span>
-        <span>Mis mejores recuerdos.</span>
-        <span>Mi hoy, mi mañana y mi por siempre.</span>
-        <span>Mi razón para sonreír.</span>
-        <span>Mi risa.</span>
-        <span>Mi corazón y alma.</span>
-        <span>Mi apoyo.</span>
-        <span>Mi mundo entero.</span>
-        <span>Mi todo.</span>
-        <br>
-        <span><strong>Mi único y especial.</strong></span>
-        <span><strong>El amor de mi vida.</strong></span>
+        <span class="fecha">26 de septiembre de 2026</span>
     </div>
 
-    <div class="firma">Con todo mi amor - Joey Palacios💖</div>
-    <div class="corazon">❤️</div>
-</div>
-
-<script>
-/* CONTEO REGRESIVO */
-const fechaCumple = new Date("2026-01-19T00:00:00").getTime();
-const contador = document.getElementById("contador");
-
-setInterval(() => {
-    const ahora = new Date().getTime();
-    const diferencia = fechaCumple - ahora;
-
-    if (diferencia <= 0) {
-        contador.innerHTML = "🎉 ¡HOY ES TU DÍA, MI AMOR! 🎉";
-        return;
-    }
-
-    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
-    const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
-    const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
-    const segundos = Math.floor((diferencia / 1000) % 60);
-
-    contador.innerHTML = `⏳ Faltan ${dias} días, ${horas}h ${minutos}m ${segundos}s`;
-}, 1000);
-
-/* EMOJIS AL ABRIR */
-const emojis = ["🎂", "💖", "🎉", "✨", "❤️"];
-
-window.onload = () => {
-    for (let i = 0; i < 35; i++) {
-        const emoji = document.createElement("div");
-        emoji.className = "emoji";
-        emoji.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
-        emoji.style.left = Math.random() * 100 + "vw";
-        emoji.style.animationDuration = (Math.random() * 2 + 3) + "s";
-        document.body.appendChild(emoji);
-        setTimeout(() => emoji.remove(), 5000);
-    }
-};
-</script>
+    <footer>
+        Hecho con amor para ti ❤️
+    </footer>
 
 </body>
 </html>
-
