@@ -2,27 +2,138 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Mi primera página web</title>
+    <title> Feliz Cumpleaños Amorcito Mia 💖</title>
+
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(180deg, #fff0f5, #ffe6ee);
             text-align: center;
-            padding: 50px;
+            overflow-x: hidden;
         }
+
         h1 {
-            color: #333;
+            font-size: 50px;
+            color: #e63946;
+            margin-top: 60px;
+            animation: latido 1.5s infinite;
         }
-        p {
+
+        h2 {
+            font-size: 28px;
+            color: #ff6b81;
+            margin-top: 10px;
+        }
+
+        .fecha {
             font-size: 18px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .mensaje {
+            max-width: 700px;
+            margin: auto;
+            font-size: 20px;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .corazon {
+            font-size: 60px;
+            animation: flotar 3s infinite;
+        }
+
+        button {
+            background: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            font-size: 18px;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        footer {
+            margin-top: 80px;
+            font-size: 16px;
+            color: #777;
+            padding-bottom: 40px;
+        }
+
+        /* Animaciones */
+        @keyframes latido {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes flotar {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes caer {
+            0% { transform: translateY(-20px); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
         }
     </style>
 </head>
+
 <body>
 
-    <h1>¡Hola! 👋</h1>
-    <p>Esta es mi primera página web publicada en GitHub.</p>
-    <p>Creada por Joey Palacios</p>
+    <h1>💖 Feliz Cumpleaños 💖</h1>
+    <h2>Esthefany Meneses</h2>
+    <p class="fecha">19 de enero de 2026</p>
+
+    <div class="corazon">❤️</div>
+
+    <div class="mensaje">
+        Hoy celebro no solo el día en que naciste,  
+        sino la suerte inmensa de tenerte en mi vida.  
+        <br><br>
+        Eres mi alegría, mi calma, mi sonrisa diaria  
+        y la persona que hace mis días más bonitos.  
+        <br><br>
+        Deseo que este nuevo año esté lleno de amor,  
+        sueños cumplidos y momentos que guardemos juntos  
+        para siempre 💕
+    </div>
+
+    <button onclick="sorpresa()">✨ Presiona aquí ✨</button>
+
+    <footer>
+        Con todo mi amor 💖<br>
+        — Tu novio
+    </footer>
+
+    <script>
+        function sorpresa() {
+            alert("💖 Feliz cumpleaños, mi amor 💖\nGracias por existir y hacer mi mundo mejor.");
+
+            for (let i = 0; i < 40; i++) {
+                let elemento = document.createElement("div");
+                elemento.innerHTML = Math.random() > 0.5 ? "💖" : "✨";
+                elemento.style.position = "fixed";
+                elemento.style.left = Math.random() * 100 + "vw";
+                elemento.style.top = "-20px";
+                elemento.style.fontSize = "30px";
+                elemento.style.animation = "caer 4s linear";
+                document.body.appendChild(elemento);
+
+                setTimeout(() => elemento.remove(), 4000);
+            }
+        }
+    </script>
 
 </body>
 </html>
